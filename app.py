@@ -42,8 +42,7 @@ def webhook():
         slug = generate_slug(text)
         keywords = extract_keywords(text)
 
-        response_text = f"📌 **نامک:** `{slug}`
-🔑 **کلمات کلیدی:** `{keywords}`"
+        response_text = f"📌 **نامک:** `{slug}`\n🔑 **کلمات کلیدی:** `{keywords}`"
         requests.post(f"{TELEGRAM_API_URL}/sendMessage", data={"chat_id": chat_id, "text": response_text, "parse_mode": "Markdown"})
 
     return '', 200
